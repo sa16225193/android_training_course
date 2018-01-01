@@ -35,5 +35,17 @@
         android:onClick="startFragment"
         android:text="@string/button_send" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="share"
+        android:text="@string/button_share" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="shareFile"
+        android:text="@string/button_share_file" />
+
 </LinearLayout>
 

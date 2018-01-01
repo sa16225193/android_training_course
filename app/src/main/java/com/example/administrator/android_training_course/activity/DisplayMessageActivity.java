@@ -16,7 +16,7 @@ import com.example.administrator.android_training_course.R;
  * Created by Administrator on 2017/12/23.
  */
 
-class DisplayMessageActivity extends AppCompatActivity{
+public class DisplayMessageActivity extends AppCompatActivity{
 
     static void Log(String msg) {
         Log.d("TAG", "DisplayMessageActivity: " + msg);

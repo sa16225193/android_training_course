@@ -9,10 +9,14 @@ import android.widget.EditText;
 
 import com.example.administrator.android_training_course.R;
 
+import java.net.URI;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.example.administrator.android_training_course.MESSAGE";
+    public final static String URI_TO_IMAGE = "http://img.taopic.com/uploads/allimg/140320/235006-140320195A921.jpg";
     private int i;
 
     static void Log(String msg) {
@@ -89,6 +93,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void startFragment(View v) {
         Intent intent = new Intent(this, FragmentTestActivity.class);
+        startActivity(intent);
+    }
+
+    public void share(View v){
+//        Intent shareTextIntent = new Intent();
+//        shareTextIntent.setAction(Intent.ACTION_SEND);
+//        shareTextIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send");
+//        shareTextIntent.setType("text/plain");
+//        startActivity(Intent.createChooser(shareTextIntent, getResources().getText(R.string.button_share)));
+
+        Intent shareBinaryIntent = new Intent();
+        shareBinaryIntent.setAction(Intent.ACTION_SEND);
+        shareBinaryIntent.putExtra(Intent.EXTRA_STREAM,URI_TO_IMAGE);
+        shareBinaryIntent.setType("image/*");
+        startActivity(Intent.createChooser(shareBinaryIntent, getResources().getText(R.string.button_share)));
+
+    }
+
+    public void shareFile(View v){
+        Intent intent = new Intent(this, FileSelectActivity.class);
         startActivity(intent);
     }
 
