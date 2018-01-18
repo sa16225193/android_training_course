@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.example.administrator.android_training_course.R;
 
@@ -12,6 +13,7 @@ import com.example.administrator.android_training_course.R;
  */
 public class MusicService extends Service {
 
+    private static final String TAG = MusicService.class.getSimpleName();
     private MediaPlayer player;
     @Override
     public IBinder onBind(Intent intent) {
@@ -39,11 +41,13 @@ public class MusicService extends Service {
         stopMusic();
     }
     private void pauseMusic() {// 暂停音乐（续播）
+        Log.e(TAG , "暂停音乐（续播）");
         if (player != null && player.isPlaying()) {
             player.pause();
         }
     }
     private void stopMusic() {// 停止音乐（重播）
+        Log.e(TAG , "停止音乐（重播）");
         if (player != null) {
             player.stop();
             player.reset();
@@ -52,6 +56,7 @@ public class MusicService extends Service {
         }
     }
     private void playMusic() { // 播放音乐
+        Log.e(TAG, "播放音乐");
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.a);
         }
