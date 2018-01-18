@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="false" />
@@ -65,6 +66,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
+
 
         <activity android:name=".media.AudioActivity"/>
         <receiver android:name=".media.AudioControlReceiver">
