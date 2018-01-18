@@ -2,8 +2,13 @@
     <string name="app_name">android_training_course</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="button_share">Share</string>
     <string name="button_start_fragment">Start Fragment</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_display_message">My Message</string>
     <string name="action_search">action_search</string>
+    <string name="button_share_file">Share File</string>
+    <string name="button_share_file_by_nfc">Share File By NFC</string>
+    <string name="button_audio_controller">Audio Controller</string>
+
 </resources>
