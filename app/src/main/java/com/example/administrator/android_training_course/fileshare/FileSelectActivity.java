@@ -1,4 +1,4 @@
-package com.example.administrator.android_training_course.activity;
+package com.example.administrator.android_training_course.fileshare;
 
 import android.app.Activity;
 import android.app.ListActivity;

@@ -1,4 +1,4 @@
-package com.example.administrator.android_training_course.activity;
+package com.example.administrator.android_training_course.nfc;
 
 import android.content.Context;
 import android.content.Intent;

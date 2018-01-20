@@ -1,4 +1,4 @@
-package com.example.administrator.android_training_course.activity;
+package com.example.administrator.android_training_course;
 
 
 import android.content.Intent;
@@ -9,10 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.administrator.android_training_course.R;
+import com.example.administrator.android_training_course.actionbar.DisplayMessageActivity;
+import com.example.administrator.android_training_course.fileshare.FileSelectActivity;
+import com.example.administrator.android_training_course.fragment.FragmentTestActivity;
 import com.example.administrator.android_training_course.media.AudioActivity;
-
-import java.net.URI;
-import java.util.ArrayList;
+import com.example.administrator.android_training_course.nfc.NFCActivity;
+import com.example.administrator.android_training_course.photo.CameraActivity;
+import com.example.administrator.android_training_course.photo.PhotoActivity;
+import com.example.administrator.android_training_course.photo.VideoActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -74,4 +78,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void takePhoto(View view) {
+        Intent intent = new Intent(this, PhotoActivity.class);
+        startActivity(intent);
+    }
+
+    public void takeVideo(View view) {
+        Intent intent = new Intent(this, VideoActivity.class);
+        startActivity(intent);
+    }
+
+    public void cameraTest(View v) {
+        Intent intent = new Intent(this, CameraActivity.class);
+        startActivity(intent);
+    }
 }

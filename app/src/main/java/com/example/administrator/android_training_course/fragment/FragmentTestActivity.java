@@ -1,4 +1,4 @@
-package com.example.administrator.android_training_course.activity;
+package com.example.administrator.android_training_course.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

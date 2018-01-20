@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.administrator.android_training_course.activity.MainActivity">
+    tools:context="com.example.administrator.android_training_course.MainActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -58,6 +58,24 @@
         android:layout_height="wrap_content"
         android:onClick="audioController"
         android:text="@string/button_audio_controller" />
+
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="takePhoto"
+    android:text="@string/take_photo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="takeVideo"
+        android:text="@string/take_video" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cameraTest"
+        android:text="@string/camero_test" />
 
 </LinearLayout>
 
