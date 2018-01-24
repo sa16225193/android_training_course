@@ -23,6 +23,18 @@
         android:text="@string/compress_photo"
         android:onClick="compressPhoto"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/print_photo"
+        android:onClick="printPhoto"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/print_html"
+        android:onClick="printHtml"/>
+
     <ImageView
         android:id="@+id/iv_photo"
         android:layout_width="300dp"

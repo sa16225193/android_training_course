@@ -1,5 +1,6 @@
 package com.example.administrator.android_training_course.photo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -7,11 +8,18 @@ import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Environment;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintJob;
+import android.print.PrintManager;
 import android.provider.MediaStore;
+import android.support.v4.print.PrintHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
 import com.example.administrator.android_training_course.R;
@@ -19,14 +27,21 @@ import com.example.administrator.android_training_course.R;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * 拍照并打印
+ */
 public class PhotoActivity extends AppCompatActivity {
 
     private final String TAG = PhotoActivity.class.getSimpleName();
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView mImageView;
     private String mCurrentPhotoPath;
+    private boolean isPrinting;
+    private WebView mWebView;
+    private ArrayList<PrintJob> mPrintJob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +58,12 @@ public class PhotoActivity extends AppCompatActivity {
 
     private void init() {
         hasCameraSupport();
+    }
+
+    @Override
+    protected void onRestart() {
+        isPrinting = false;
+        super.onRestart();
     }
 
     /**
@@ -191,5 +212,78 @@ public class PhotoActivity extends AppCompatActivity {
     public void compressPhoto(View view) {
         Log.e(TAG, "compressPhoto");
         setPic();
+    }
+
+    public void printHtml  (View view) {
+        Log.e(TAG, "compressPhoto");
+        doWebViewPrint();
+    }
+
+    public void printPhoto(View view) {
+        if (!isPrinting) {
+            isPrinting = true;
+            Log.e(TAG, "printPhoto");
+            PrintHelper photoPrinter = new PrintHelper(this);
+            photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
+            Log.e(TAG, mCurrentPhotoPath.substring(mCurrentPhotoPath.lastIndexOf("/") + 1));
+            photoPrinter.printBitmap(mCurrentPhotoPath.substring(mCurrentPhotoPath.lastIndexOf("/")), BitmapFactory.decodeFile(mCurrentPhotoPath));
+        }
+    }
+
+    private void doWebViewPrint() {
+        mPrintJob = new ArrayList<>();
+        // Create a WebView object specifically for printing
+        WebView webView = new WebView(this);
+        webView.setWebViewClient(new WebViewClient() {
+
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                Log.i(TAG, "page finished loading " + url);
+                createWebPrintJob(view);
+                mWebView = null;
+            }
+        });
+
+        // Generate an HTML document on the fly:
+        String htmlDocument = "<html><body><h1>Test Content</h1><p>Testing, " +
+                "testing, testing...</p></body></html>";
+
+        webView.loadDataWithBaseURL("file:///android_asset/", "1.jpg", "text/HTML", "UTF-8", null);
+        String body="<img  src=\"file:///android_asset/1.jpg\"/>";
+        String html="<html><body>"+body+"</html></body>";
+//            // 本地文件处理(能显示图片)
+            webView.loadDataWithBaseURL(null, html, "text/HTML", "UTF-8", null);
+
+//        webView.loadUrl("https://www.hao123.com/");
+        // Keep a reference to WebView object until you pass the PrintDocumentAdapter
+        // to the PrintManager
+        mWebView = webView;
+    }
+
+    private void createWebPrintJob(WebView webView) {
+
+        // Get a PrintManager instance
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+
+        // Get a print adapter instance
+        PrintDocumentAdapter printAdapter = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            printAdapter = webView.createPrintDocumentAdapter();
+        }
+
+        // Create a print job with name and adapter instance
+        String jobName = getString(R.string.app_name) + " Document";
+        PrintJob printJob = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            printJob = printManager.print(jobName, printAdapter,
+                    new PrintAttributes.Builder().build());
+        }
+
+        // Save the job object for later status checking
+        mPrintJob.add(printJob);
     }
 }
