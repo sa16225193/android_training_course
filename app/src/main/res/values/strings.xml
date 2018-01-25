@@ -17,5 +17,6 @@
     <string name="compress_photo">压缩图片</string>
     <string name="print_photo">打印图片</string>
     <string name="print_html">打印HTML</string>
+    <string name="print_custom">打印自定义文档</string>
 
 </resources>
