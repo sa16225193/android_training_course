@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.administrator.android_training_course.R;
 import com.example.administrator.android_training_course.actionbar.DisplayMessageActivity;
 import com.example.administrator.android_training_course.fileshare.FileSelectActivity;
 import com.example.administrator.android_training_course.fragment.FragmentTestActivity;

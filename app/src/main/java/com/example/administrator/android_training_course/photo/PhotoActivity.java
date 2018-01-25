@@ -249,13 +249,20 @@ public class PhotoActivity extends AppCompatActivity {
         });
 
         // Generate an HTML document on the fly:
-        String htmlDocument = "<html><body><h1>Test Content</h1><p>Testing, " +
-                "testing, testing...</p></body></html>";
+//        String htmlDocument = "<html><body><h1>Test Content</h1><p>Testing, " +
+//                "testing, testing...</p></body></html>";
+//        webView.loadDataWithBaseURL(null, htmlDocument, "text/HTML", "UTF-8", null);
 
-        webView.loadDataWithBaseURL("file:///android_asset/", "1.jpg", "text/HTML", "UTF-8", null);
-        String body="<img  src=\"file:///android_asset/1.jpg\"/>";
+//        String baseUrl = "file:///android_asset/";
+//        String body="<img  src=\"./1.jpg\"/>";
+//        webView.loadDataWithBaseURL(baseUrl, body, "text/HTML", "UTF-8", null);
+
+//        String body="<img  src=\"file:///android_asset/1.jpg\"/>";
+        String body="<img  src=\"" + "file://" + mCurrentPhotoPath + "\"/>";
+        Log.e(TAG, "body : " + body);
+        Log.e(TAG, "photoPath : " + mCurrentPhotoPath);
         String html="<html><body>"+body+"</html></body>";
-//            // 本地文件处理(能显示图片)
+            // 本地文件处理(能显示图片)
             webView.loadDataWithBaseURL(null, html, "text/HTML", "UTF-8", null);
 
 //        webView.loadUrl("https://www.hao123.com/");

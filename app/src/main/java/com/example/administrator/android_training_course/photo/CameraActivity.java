@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -21,7 +20,6 @@ import java.util.Date;
 
 /**
  * 控制相机
- * 此页面有Ｂｕｇ，待解决
  */
 public class CameraActivity extends AppCompatActivity implements Camera.PictureCallback {
 
@@ -69,8 +67,6 @@ public class CameraActivity extends AppCompatActivity implements Camera.PictureC
             } else {
                 //是否可以安全打开相机
                 if (safeCameraOpen(cameraId)) {
-                    mPreview.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-//                    mPreview.getHolder().addCallback(this);
                     mCamera.startPreview();  //开启相机预览
                     mPreview.setCamera(mCamera);
                 } else {
