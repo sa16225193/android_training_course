@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.android_training_course">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- NFC权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.NFC" />
-    <!--写SD卡权限-->
+    <!-- 写SD卡权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
@@ -91,7 +91,8 @@
 
         <activity android:name=".photo.PhotoActivity" />
         <activity android:name=".photo.VideoActivity" />
-        <activity android:name=".photo.CameraActivity"></activity>
+        <activity android:name=".photo.CameraActivity" />
+        <activity android:name=".print.PrintActivity"></activity>
     </application>
 
 </manifest>
