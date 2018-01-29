@@ -13,6 +13,7 @@
     <string name="take_photo">拍照</string>
     <string name="take_video">录制视频</string>
     <string name="camero_test">自定义相机</string>
+    <string name="bitmap_test">Bitmap</string>
     <string name="send_photo_album">存放到相册</string>
     <string name="compress_photo">压缩图片</string>
     <string name="print_photo">打印图片</string>

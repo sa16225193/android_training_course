@@ -78,5 +78,12 @@
         android:onClick="cameraTest"
         android:text="@string/camero_test" />
 
+    <Button
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="bitmapTest"
+        android:text="@string/bitmap_test" />
+
 </LinearLayout>
 

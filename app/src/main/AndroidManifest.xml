@@ -92,7 +92,8 @@
         <activity android:name=".photo.PhotoActivity" />
         <activity android:name=".photo.VideoActivity" />
         <activity android:name=".photo.CameraActivity" />
-        <activity android:name=".print.PrintActivity"></activity>
+        <activity android:name=".print.PrintActivity" />
+        <activity android:name=".bitmap.BitmapActivity"></activity>
     </application>
 
 </manifest>

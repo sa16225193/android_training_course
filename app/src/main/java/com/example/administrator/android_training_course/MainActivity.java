@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.administrator.android_training_course.actionbar.DisplayMessageActivity;
+import com.example.administrator.android_training_course.bitmap.BitmapActivity;
 import com.example.administrator.android_training_course.fileshare.FileSelectActivity;
 import com.example.administrator.android_training_course.fragment.FragmentTestActivity;
 import com.example.administrator.android_training_course.media.AudioActivity;
@@ -89,6 +90,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void cameraTest(View v) {
         Intent intent = new Intent(this, CameraActivity.class);
+        startActivity(intent);
+    }
+
+    public void bitmapTest(View v) {
+        Intent intent = new Intent(this, BitmapActivity.class);
         startActivity(intent);
     }
 }
