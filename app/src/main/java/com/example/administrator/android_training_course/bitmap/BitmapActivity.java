@@ -3,7 +3,6 @@ package com.example.administrator.android_training_course.bitmap;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -25,6 +24,11 @@ public class BitmapActivity extends AppCompatActivity {
         mPlaceHolderBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
     }
 
+    /**
+     *给ImageView设置Bitmap
+     * @param resId
+     * @param imageView
+     */
     public void loadBitmap(int resId, ImageView imageView) {
         if (cancelPotentialWork(resId, imageView)) {
             BitmapWorkerTask task = new BitmapWorkerTask(this, imageView);
